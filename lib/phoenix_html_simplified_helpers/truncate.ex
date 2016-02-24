@@ -7,7 +7,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     len_with_omi = len - String.length(omi)
     stop =
       if options[:separator] do
-        rindex(text, options[:separator], len_with_omi) || len_with_omi
+        rindex(text, options[:separator]) || len_with_omi
       else
         len_with_omi
       end
@@ -15,13 +15,13 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     "#{String.slice(text, 0, stop)}#{omi}"
   end
 
-  def rindex(text, str), do: rindex(text, str, 0)
-  def rindex(text, str, offset) do
+  defp rindex(text, str) do
     {index, _} =
-      String.slice(String.reverse(text), offset, String.length(text))
+      text
+      |> String.reverse
       |> :binary.match(str)
 
-    String.length(text) - 1 - index - offset
+    String.length(text) - index - 1
   end
 
 end
