@@ -70,18 +70,18 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
         cond do
           remainder < @minutes_in_quarter_year ->
             case distance_in_years do
-              1 -> gettext("about %{count} year",   count: distance_in_years)
-              _ -> gettext("about %{count} years",  count: distance_in_years)
+              1                 -> gettext "about %{count} year",        count: distance_in_years
+              _                 -> gettext "about %{count} years",       count: distance_in_years
             end
           remainder < @minutes_in_three_quarters_year ->
             case distance_in_years do
-              1 -> gettext("over %{count} year",    count: distance_in_years)
-              _ -> gettext("over %{count} years",   count: distance_in_years)
+              1                 -> gettext "over %{count} year",         count: distance_in_years
+              _                 -> gettext "over %{count} years",        count: distance_in_years
             end
           true ->
             case distance_in_years do
-              1 -> gettext("almost %{count} year",  count: distance_in_years + 1)
-              _ -> gettext("almost %{count} years", count: distance_in_years + 1)
+              1                 -> gettext "almost %{count} year",       count: distance_in_years + 1
+              _                 -> gettext "almost %{count} years",      count: distance_in_years + 1
             end
         end
     end
