@@ -1,5 +1,7 @@
 defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
 
+  import Phoenix.HTML.SimplifiedHelpers.Gettext
+
   def time_ago_in_words(from_time), do:
     distance_of_time_in_words(from_time, Timex.Time.now(:secs))
 
@@ -37,22 +39,21 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
     IO.inspect distance_in_seconds
 
     case distance_in_minutes do
-      x when x in 0..1          -> 1
-      x when x in 2..44         -> distance_in_minutes
-      x when x in 45..89        -> 1
+      x when x in 0..1          -> gettext "less than %{count} second", count: 1
+      x when x in 2..44         -> gettext "%{count} minutes",          count: distance_in_minutes
+      x when x in 45..89        -> gettext "about %{count} hour",       count: 1
       # 90 mins up to 24 hours
-      x when x in 90..1439      -> round(distance_in_minutes / 60.0)
+      x when x in 90..1439      -> gettext "about %{count} hours",      count: round(distance_in_minutes / 60.0)
       # 24 hours up to 42 hours
-      x when x in 1440..2519    -> 1
+      x when x in 1440..2519    -> gettext "%{count} day",              count: 1
       # 42 hours up to 30 days
-      x when x in 2520..43199   -> round(distance_in_minutes / 1440.0)
+      x when x in 2520..43199   -> gettext "%{count} days",             count: round(distance_in_minutes / 1440.0)
       # 30 days up to 60 days
-      x when x in 43200..86399  -> round(distance_in_minutes / 43200.0)
+      x when x in 43200..86399  -> gettext "about %{count} months",     count: round(distance_in_minutes / 43200.0)
       # 60 days up to 365 days
-      x when x in 86400..525599 -> round(distance_in_minutes / 43200.0)
+      x when x in 86400..525599 -> gettext "%{count} months",           count: round(distance_in_minutes / 43200.0)
       _ ->
         :error
     end
-
   end
 end
