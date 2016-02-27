@@ -12,70 +12,70 @@ msgstr ""
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:59
 msgid "%{count} day"
-msgstr ""
+msgstr "%{count}日"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:61
 msgid "%{count} days"
-msgstr ""
+msgstr "%{count}日"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:52
 msgid "%{count} minute"
-msgstr ""
+msgstr "%{count}分"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:54
 msgid "%{count} minutes"
-msgstr ""
+msgstr "%{count}分"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:65
 msgid "%{count} months"
-msgstr ""
+msgstr "%{count}ヶ月"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:55
 msgid "about %{count} hour"
-msgstr ""
+msgstr "約%{count}時間"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:57
 msgid "about %{count} hours"
-msgstr ""
+msgstr "約%{count}時間"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:63
 msgid "about %{count} months"
-msgstr ""
+msgstr "約%{count}ヶ月"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:73
 msgid "about %{count} year"
-msgstr ""
+msgstr "約%{count}年"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:74
 msgid "about %{count} years"
-msgstr ""
+msgstr "約%{count}年"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:83
 msgid "almost %{count} year"
-msgstr ""
+msgstr "%{count}年弱"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:84
 msgid "almost %{count} years"
-msgstr ""
+msgstr "%{count}年弱"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:50
 msgid "half a minute"
-msgstr ""
+msgstr "30秒前後"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:51
 msgid "less than %{count} minute"
-msgstr ""
+msgstr "%{count}分以内"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:47
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:48
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:49
 msgid "less than %{count} seconds"
-msgstr ""
+msgstr "%{count}秒以内"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:78
 msgid "over %{count} year"
-msgstr ""
+msgstr "%{count}年以上"
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:79
 msgid "over %{count} years"
-msgstr ""
+msgstr "%{count}年以上"
