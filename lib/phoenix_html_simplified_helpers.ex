@@ -4,6 +4,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers do
   defmacro __using__(_options) do
     quote do
       import Phoenix.HTML.SimplifiedHelpers.Truncate
+      import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords
     end
   end
 
