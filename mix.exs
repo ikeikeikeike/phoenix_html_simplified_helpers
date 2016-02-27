@@ -1,13 +1,19 @@
 defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   use Mix.Project
 
+  @description """
+  Some view helpers for phoenix html( truncate, time_ago_in_words )
+  """
+
   def project do
     [app: :phoenix_html_simplified_helpers,
      version: "0.2.1",
-     elixir: "~> 1.2",
+     elixir: ">= 1.0.0",
+     source_url: "https://github.com/ikeikeikeike/phoenix_html_simplified_helpers",
      compilers: [:gettext] ++ Mix.compilers,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
+     docs: [extras: ["README.md"]],
+     description: @description,
+     package: package,
      deps: deps]
   end
 
@@ -37,4 +43,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
       {:ex_doc, "~> 0.10", only: :dev},
     ]
   end
+
+  defp package do
+    [ maintainers: ["Tatsuo Ikeda / ikeikeikeike"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/ikeikeikeike/phoenix_html_simplified_helpers"},
+    ]
+  end
+
 end
