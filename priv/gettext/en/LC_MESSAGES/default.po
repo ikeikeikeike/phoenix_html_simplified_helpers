@@ -10,34 +10,72 @@ msgid ""
 msgstr ""
 "Language: en\n"
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:48
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:59
 msgid "%{count} day"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:50
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:61
 msgid "%{count} days"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:43
-msgid "%{count} minutes"
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:52
+msgid "%{count} minute"
 msgstr ""
 
 #: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:54
+msgid "%{count} minutes"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:65
 msgid "%{count} months"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:44
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:55
 msgid "about %{count} hour"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:46
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:57
 msgid "about %{count} hours"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:52
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:63
 msgid "about %{count} months"
 msgstr ""
 
-#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:42
-msgid "less than %{count} second"
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:73
+msgid "about %{count} year"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:74
+msgid "about %{count} years"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:83
+msgid "almost %{count} year"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:84
+msgid "almost %{count} years"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:50
+msgid "half a minute"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:51
+msgid "less than %{count} minute"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:47
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:48
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:49
+msgid "less than %{count} seconds"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:78
+msgid "over %{count} year"
+msgstr ""
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:79
+msgid "over %{count} years"
 msgstr ""
