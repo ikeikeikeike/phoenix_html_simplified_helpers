@@ -3,7 +3,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
 
   def project do
     [app: :phoenix_html_simplified_helpers,
-     version: "0.0.1",
+     version: "0.2.1",
      elixir: "~> 1.2",
      compilers: [:gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -29,10 +29,10 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:timex, "~> 1.0.1"},
-      {:calendar, "~> 0.12.4"},
+      {:timex, "~> 1.0"},
+      {:calendar, "~> 0.12"},
       {:ecto, "~> 1.1"},
-      {:gettext, "~> 0.10.0"},
+      {:gettext, "~> 0.10"},
       {:earmark, ">= 0.0.0", only: :dev},
       {:ex_doc, "~> 0.10", only: :dev},
     ]
