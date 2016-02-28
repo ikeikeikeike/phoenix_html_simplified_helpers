@@ -25,3 +25,41 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     [applications: [:phoenix_html_simplified_helpers]]
   end
   ```
+
+  3. later
+
+  ```elixir
+  def view do
+    quote do
+      use Phoenix.View, root: "web/templates"
+
+      # Import convenience functions from controllers
+      import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
+
+      # Use all HTML functionality (forms, tags, etc)
+      use Phoenix.HTML
+      use Phoenix.HTML.SimplifiedHelpers  <-- add this pkg.
+
+      import Exblur.Router.Helpers
+      import Exblur.ErrorHelpers
+      import Exblur.Gettext
+    end
+  end
+  ```
+
+  4. later automatically.
+
+  ```elixir
+  Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
+  ```
+
+
+## Usage
+
+```elixir
+<%= truncate entity.content %>
+```
+
+```elixir
+<%= time_ago_in_words entity.published_at %> ago
+```
