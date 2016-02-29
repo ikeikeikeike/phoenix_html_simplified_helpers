@@ -74,7 +74,7 @@ truncate "Once upon a time in a world far far away"
 # Once upon a time in a world...
 truncate "Once upon a time in a world far far away", length: 27
 # Once upon a time in a wo...
-truncate("And they found that many people were sleeping better.", length: 25, omission: "... (continued)"
+truncate "And they found that many people were sleeping better.", length: 25, omission: "... (continued)"
 # And they f... (continued)
 ```
 
