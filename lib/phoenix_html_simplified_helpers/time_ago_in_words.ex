@@ -6,7 +6,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
   @minutes_in_three_quarters_year 394200
 
   def time_ago_in_words(from_time), do:
-    distance_of_time_in_words(from_time, Timex.Time.now(:secs))
+    distance_of_time_in_words(from_time)
 
   def distance_of_time_in_words_to_now(from_time), do:
     time_ago_in_words(from_time)

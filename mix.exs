@@ -21,7 +21,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :calendar, :timex, :gettext]]
+    [applications: [:logger, :timex, :gettext]]
   end
 
   # Dependencies can be Hex packages:
@@ -36,7 +36,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   defp deps do
     [
       {:timex, "~> 1.0"},
-      {:calendar, "~> 0.12"},
+      {:timex_ecto, "~> 0.9"},
       {:ecto, "~> 1.1"},
       {:gettext, "~> 0.10"},
       {:earmark, ">= 0.0.0", only: :dev},
