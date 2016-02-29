@@ -26,7 +26,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   end
   ```
 
-  3. later
+  3. phoenix_html_simplified_helpers need to import(use) your Phoenix project. The following description is adding 'use syntax' into web.ex.
 
   ```elixir
   def view do
@@ -38,16 +38,26 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
-      use Phoenix.HTML.SimplifiedHelpers  <-- add this pkg.
+      use Phoenix.HTML.SimplifiedHelpers  # this line.
 
-      import Exblur.Router.Helpers
-      import Exblur.ErrorHelpers
-      import Exblur.Gettext
+      import MyApp.Router.Helpers
+      import MyApp.ErrorHelpers
+      import MyApp.Gettext
     end
   end
   ```
 
-  4. later automatically.
+  Also it is able to import(use) in each view helper files.
+
+  ```elixir
+  defmodule MyApp.LayoutView do
+    use MyApp.Web, :view
+    import Phoenix.HTML.SimplifiedHelpers.Truncate        # this line.
+    import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords  # this line.
+  end
+  ```
+
+  4. time_ago_in_words has Gettext module that is changed translation file from project's locale.
 
   ```elixir
   Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
