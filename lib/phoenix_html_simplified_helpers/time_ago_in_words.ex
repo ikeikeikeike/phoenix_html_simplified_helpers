@@ -6,35 +6,30 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
   @minutes_in_three_quarters_year 394200
 
   def time_ago_in_words(from_time), do:
-    distance_of_time_in_words(from_time)
+    distance_of_time_in_words(from_time, Timex.Time.now(:secs))
 
   def distance_of_time_in_words_to_now(from_time), do:
     time_ago_in_words(from_time)
 
+  def distance_of_time_in_words(from_time) when is_integer(from_time), do: distance_of_time_in_words(from_time, 0)
+  def distance_of_time_in_words(%Timex.DateTime{} = from_time), do: distance_of_time_in_words(Timex.Date.to_secs(from_time), 0)
   def distance_of_time_in_words(%Ecto.DateTime{} = from_time) do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
-    distance_of_time_in_words(Timex.Date.to_secs(from), Timex.Time.now(:secs))
+    distance_of_time_in_words(Timex.Date.to_secs(from), 0)
   end
 
-  def distance_of_time_in_words(%Timex.DateTime{} = from_time), do:
-    distance_of_time_in_words(Timex.Date.to_secs(from_time), Timex.Time.now(:secs))
-
-  def distance_of_time_in_words(from_time) when is_integer(from_time), do:
-    distance_of_time_in_words(from_time, 0)
-
+  def distance_of_time_in_words(%Timex.DateTime{} = from_time, to_time) when is_integer(to_time), do: distance_of_time_in_words(Timex.Date.to_secs(from_time), to_time)
   def distance_of_time_in_words(%Ecto.DateTime{} = from_time, to_time) when is_integer(to_time) do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
     distance_of_time_in_words(Timex.Date.to_secs(from), to_time)
   end
 
+  def distance_of_time_in_words(%Timex.DateTime{} = from_time, %Timex.DateTime{} = to_time), do: distance_of_time_in_words(Timex.Date.to_secs(from_time), Timex.Date.to_secs(to_time))
   def distance_of_time_in_words(%Ecto.DateTime{} = from_time, %Ecto.DateTime{} = to_time) do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
     {:ok, to}   = Timex.Ecto.DateTime.cast to_time
     distance_of_time_in_words(Timex.Date.to_secs(from), Timex.Date.to_secs(to))
   end
-
-  def distance_of_time_in_words(%Timex.DateTime{} = from_time, %Timex.DateTime{} = to_time), do:
-    distance_of_time_in_words(Timex.Date.to_secs(from_time), Timex.Date.to_secs(to_time))
 
   @spec distance_of_time_in_words(Integer.t, Integer.t) :: String.t
   def distance_of_time_in_words(from_time, to_time) when is_integer(from_time) and is_integer(to_time) do

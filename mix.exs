@@ -41,6 +41,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
       {:gettext, "~> 0.10"},
       {:earmark, ">= 0.0.0", only: :dev},
       {:ex_doc, "~> 0.10", only: :dev},
+      {:inch_ex, only: :docs},
     ]
   end
 
