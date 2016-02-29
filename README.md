@@ -69,7 +69,24 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 ```elixir
 <%= truncate entity.content %>
 ```
+```elixir
+truncate "Once upon a time in a world far far away"
+# Once upon a time in a world...
+truncate "Once upon a time in a world far far away", length: 27
+# Once upon a time in a wo...
+truncate("And they found that many people were sleeping better.", length: 25, omission: "... (continued)"
+# And they f... (continued)
+```
 
 ```elixir
 <%= time_ago_in_words entity.published_at %> ago
+```
+
+```elixir
+time_ago_in_words Timex.Date.now
+# less than 5 seconds
+time_ago_in_words Timex.Date.now(:secs)
+# less than 5 seconds
+time_ago_in_words Ecto.DateTime.utc
+# less than 5 seconds
 ```
