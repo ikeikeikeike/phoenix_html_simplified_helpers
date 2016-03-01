@@ -63,4 +63,70 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
     assert time_ago_in_words(Ecto.DateTime.utc) == "menos de 5 segundos"
   end
 
+  test "distance_of_time_in_words advance one month" do
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, months: 1)
+    assert distance_of_time_in_words(from, to) == "about 1 months"
+  end
+
+  test "distance_of_time_in_words advance one month and half a month" do
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, days: 45)
+    assert distance_of_time_in_words(from, to) == "about 2 months"
+  end
+
+  test "distance_of_time_in_words advance one year" do
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, years: 1)
+    assert distance_of_time_in_words(from, to) == "about 1 year"
+  end
+
+  test "distance_of_time_in_words advance 2 years" do
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, years: 2)
+    assert distance_of_time_in_words(from, to) == "about 2 years"
+  end
+
+  test "distance_of_time_in_words advance 1 year and half a year" do
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, months: 18)
+    assert distance_of_time_in_words(from, to) == "over 1 year"
+  end
+
+  test "distance_of_time_in_words advance one month in Japanese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, months: 1)
+    assert distance_of_time_in_words(from, to) == "約1ヶ月"
+  end
+
+  test "distance_of_time_in_words advance one month and half a month in Japanese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, days: 45)
+    assert distance_of_time_in_words(from, to) == "約2ヶ月"
+  end
+
+  test "distance_of_time_in_words advance one year in Japanese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, years: 1)
+    assert distance_of_time_in_words(from, to) == "約1年"
+  end
+
+  test "distance_of_time_in_words advance 2 years in Japanese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, years: 2)
+    assert distance_of_time_in_words(from, to) == "約2年"
+  end
+
+  test "distance_of_time_in_words advance 1 year and half a year in Español" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
+    from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.Date.shift(from, months: 18)
+    assert distance_of_time_in_words(from, to) == "más de 1 año"
+  end
+
+
 end
