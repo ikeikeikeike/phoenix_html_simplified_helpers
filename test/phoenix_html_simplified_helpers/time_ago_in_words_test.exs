@@ -18,6 +18,21 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
     assert time_ago_in_words(Ecto.DateTime.utc) == "less than 5 seconds"
   end
 
+  test "time_ago_in_words normally in English" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
+    assert time_ago_in_words(Timex.Date.now) == "less than 5 seconds"
+  end
+
+  test "time_ago_in_words epoch in English" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
+    assert time_ago_in_words(Timex.Date.now(:secs)) == "less than 5 seconds"
+  end
+
+  test "time_ago_in_words with ecto in English" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
+    assert time_ago_in_words(Ecto.DateTime.utc) == "less than 5 seconds"
+  end
+
   test "time_ago_in_words normally in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
     assert time_ago_in_words(Timex.Date.now) == "5秒以内"
