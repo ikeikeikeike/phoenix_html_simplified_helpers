@@ -117,3 +117,10 @@ to   = Timex.Date.shift(from, months: 18)
 distance_of_time_in_words(from, to)
 # más de 1 año
 ```
+
+## time_ago_in_words
+
+```elixir
+number_with_delimiter 1234567
+# 1,234,567
+```
