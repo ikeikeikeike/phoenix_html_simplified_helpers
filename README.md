@@ -38,7 +38,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
-      use Phoenix.HTML.SimplifiedHelpers  # this line.
+      use Phoenix.HTML.SimplifiedHelpers  # <- this line.
 
       import MyApp.Router.Helpers
       import MyApp.ErrorHelpers
@@ -52,8 +52,8 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   ```elixir
   defmodule MyApp.LayoutView do
     use MyApp.Web, :view
-    import Phoenix.HTML.SimplifiedHelpers.Truncate        # this line.
-    import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords  # this line.
+    import Phoenix.HTML.SimplifiedHelpers.Truncate        # <- this line.
+    import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords  # <- this line.
   end
   ```
 
@@ -61,10 +61,14 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
   ```elixir
   Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
+  Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+  Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
   ```
 
 
-## Usage
+# Usage
+
+## truncate
 
 ```elixir
 <%= truncate entity.content %>
@@ -78,6 +82,8 @@ truncate "And they found that many people were sleeping better.", length: 25, om
 # And they f... (continued)
 ```
 
+## time_ago_in_words
+
 ```elixir
 <%= time_ago_in_words entity.published_at %> ago
 ```
@@ -89,4 +95,25 @@ time_ago_in_words Timex.Date.now(:secs)
 # less than 5 seconds
 time_ago_in_words Ecto.DateTime.utc
 # less than 5 seconds
+```
+
+### distance_of_time_in_words
+
+```elixir
+from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.Date.shift(from, days: 45)
+distance_of_time_in_words(from, to)
+# about 2 months
+
+Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
+from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.Date.shift(from, months: 1)
+distance_of_time_in_words(from, to)
+# 約1ヶ月
+
+Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
+from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.Date.shift(from, months: 18)
+distance_of_time_in_words(from, to)
+# más de 1 año
 ```
