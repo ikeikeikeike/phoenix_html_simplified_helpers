@@ -5,6 +5,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers do
     quote do
       import Phoenix.HTML.SimplifiedHelpers.Truncate
       import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords
+      import Phoenix.HTML.SimplifiedHelpers.NumberWithDelimiter
     end
   end
 
