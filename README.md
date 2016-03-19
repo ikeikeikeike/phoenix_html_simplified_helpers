@@ -47,7 +47,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   end
   ```
 
-  Also it is able to import(use) in each view helper files.
+  It is also able to import(use) in each view helper files.
 
   ```elixir
   defmodule MyApp.LayoutView do
@@ -118,7 +118,7 @@ distance_of_time_in_words(from, to)
 # más de 1 año
 ```
 
-## time_ago_in_words
+## number_with_delimiter
 
 ```elixir
 number_with_delimiter 1234567
