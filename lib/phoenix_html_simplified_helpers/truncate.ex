@@ -4,9 +4,10 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     len = options[:length] || 30
     omi = options[:omission] || "..."
 
-    case String.length(text) do
-      x when x < len -> text
-      _ ->
+    cond do
+     !String.valid?(text)       -> text
+      String.length(text) < len -> text
+      true ->
         len_with_omi = len - String.length(omi)
         stop =
           if options[:separator] do

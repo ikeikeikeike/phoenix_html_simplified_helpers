@@ -22,6 +22,14 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TruncateTest do
     assert "Once upon a time in a world far far away" == truncate("Once upon a time in a world far far away", length: 50)
   end
 
+  test "truncate nil" do
+    assert nil == truncate(nil)
+  end
+
+  test "truncate bool" do
+    assert false == truncate(false)
+  end
+
   # test "truncate with separator option" do
     # assert "Once upon a time in a..." == truncate("Once upon a time in a world far far away", length: 27, separator: " ")
   # end
