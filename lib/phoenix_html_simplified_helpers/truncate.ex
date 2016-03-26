@@ -4,15 +4,21 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     len = options[:length] || 30
     omi = options[:omission] || "..."
 
-    len_with_omi = len - String.length(omi)
-    stop =
-      if options[:separator] do
-        rindex(text, options[:separator]) || len_with_omi
-      else
-        len_with_omi
-      end
+    case String.length(text) do
+      x when x < len ->
+        text
 
-    "#{String.slice(text, 0, stop)}#{omi}"
+      _ ->
+        len_with_omi = len - String.length(omi)
+        stop =
+          if options[:separator] do
+            rindex(text, options[:separator]) || len_with_omi
+          else
+            len_with_omi
+          end
+
+        "#{String.slice(text, 0, stop)}#{omi}"
+    end
   end
 
   defp rindex(text, str) do

@@ -18,6 +18,10 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TruncateTest do
     assert "And they f... (continued)" == truncate("And they found that many people were sleeping better.", length: 25, omission: "... (continued)")
   end
 
+  test "truncate no applying" do
+    assert "Once upon a time in a world far far away" == truncate("Once upon a time in a world far far away", length: 50)
+  end
+
   # test "truncate with separator option" do
     # assert "Once upon a time in a..." == truncate("Once upon a time in a world far far away", length: 27, separator: " ")
   # end
