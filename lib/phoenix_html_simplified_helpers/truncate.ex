@@ -5,9 +5,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     omi = options[:omission] || "..."
 
     case String.length(text) do
-      x when x < len ->
-        text
-
+      x when x < len -> text
       _ ->
         len_with_omi = len - String.length(omi)
         stop =
