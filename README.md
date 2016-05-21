@@ -3,6 +3,7 @@
 [![Build Status](http://img.shields.io/travis/ikeikeikeike/phoenix_html_simplified_helpers.svg?style=flat-square)](http://travis-ci.org/ikeikeikeike/phoenix_html_simplified_helpers)
 [![Hex version](https://img.shields.io/hexpm/v/phoenix_html_simplified_helpers.svg "Hex version")](https://hex.pm/packages/phoenix_html_simplified_helpers)
 [![Hex downloads](https://img.shields.io/hexpm/dt/phoenix_html_simplified_helpers.svg "Hex downloads")](https://hex.pm/packages/phoenix_html_simplified_helpers)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/ikeikeikeike/phoenix_html_simplified_helpers.svg)](https://beta.hexfaktor.org/github/ikeikeikeike/phoenix_html_simplified_helpers)
 [![Inline docs](https://inch-ci.org/github/ikeikeikeike/phoenix_html_simplified_helpers.svg)](http://inch-ci.org/github/ikeikeikeike/phoenix_html_simplified_helpers)
 [![hex.pm](https://img.shields.io/hexpm/l/ltsv.svg)](https://github.com/ikeikeikeike/phoenix_html_simplified_helpers/blob/master/LICENSE)
 
