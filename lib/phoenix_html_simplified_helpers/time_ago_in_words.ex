@@ -1,34 +1,31 @@
 defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
   import  Phoenix.HTML.SimplifiedHelpers.Gettext
+  use Timex
 
   @minutes_in_year 525600
   @minutes_in_quarter_year 131400
   @minutes_in_three_quarters_year 394200
 
   def time_ago_in_words(from_time), do:
-    distance_of_time_in_words(from_time, Timex.Time.now(:seconds))
+    distance_of_time_in_words(from_time, Duration.now(:seconds))
 
   def distance_of_time_in_words_to_now(from_time), do:
     time_ago_in_words(from_time)
 
   def distance_of_time_in_words(from_time) when is_integer(from_time), do: distance_of_time_in_words(from_time, 0)
-  def distance_of_time_in_words(%Timex.DateTime{} = from_time),        do: distance_of_time_in_words(Timex.DateTime.to_secs(from_time), 0)
+  def distance_of_time_in_words(%DateTime{} = from_time),        do: distance_of_time_in_words(DateTime.to_unix(from_time), 0)
   def distance_of_time_in_words(%Ecto.DateTime{}  = from_time) do
-    {:ok, from} = Timex.Ecto.DateTime.cast from_time
-    distance_of_time_in_words(Timex.DateTime.to_secs(from), 0)
+    distance_of_time_in_words(DateTime.to_unix(cast(from_time)), 0)
   end
 
-  def distance_of_time_in_words(%Timex.DateTime{} = from_time, to_time) when is_integer(to_time), do: distance_of_time_in_words(Timex.DateTime.to_secs(from_time), to_time)
-  def distance_of_time_in_words(%Ecto.DateTime{}  = from_time, to_time) when is_integer(to_time)  do
-    {:ok, from} = Timex.Ecto.DateTime.cast from_time
-    distance_of_time_in_words(Timex.DateTime.to_secs(from), to_time)
+  def distance_of_time_in_words(%DateTime{} = from_time, to_time) when is_integer(to_time), do: distance_of_time_in_words(DateTime.to_unix(from_time), to_time)
+  def distance_of_time_in_words(%Ecto.DateTime{} = from_time, to_time) when is_integer(to_time)  do
+    distance_of_time_in_words(DateTime.to_unix(cast(from_time)), to_time)
   end
 
-  def distance_of_time_in_words(%Timex.DateTime{} = from_time, %Timex.DateTime{} = to_time), do: distance_of_time_in_words(Timex.DateTime.to_secs(from_time), Timex.DateTime.to_secs(to_time))
-  def distance_of_time_in_words(%Ecto.DateTime{}  = from_time, %Ecto.DateTime{}  = to_time)  do
-    {:ok, from} = Timex.Ecto.DateTime.cast from_time
-    {:ok, to}   = Timex.Ecto.DateTime.cast to_time
-    distance_of_time_in_words(Timex.DateTime.to_secs(from), Timex.DateTime.to_secs(to))
+  def distance_of_time_in_words(%DateTime{} = from_time, %DateTime{} = to_time), do: distance_of_time_in_words(DateTime.to_unix(from_time), DateTime.to_unix(to_time))
+  def distance_of_time_in_words(%Ecto.DateTime{} = from_time, %Ecto.DateTime{} = to_time)  do
+    distance_of_time_in_words(DateTime.to_unix(cast(from_time)), DateTime.to_unix(cast(to_time)))
   end
 
   @spec distance_of_time_in_words(Integer.t, Integer.t) :: String.t
@@ -85,5 +82,11 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
             end
         end
     end
+  end
+
+  def cast(%Ecto.DateTime{} = datetime) do
+    {:ok, d} = Ecto.DataType.dump datetime
+    {:ok, t} = Timex.Ecto.DateTime.load d
+    t
   end
 end
