@@ -7,7 +7,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
 
   def project do
     [app: :phoenix_html_simplified_helpers,
-     version: "0.4.1",
+     version: "0.6.0",
      elixir: ">= 1.0.0",
      source_url: "https://github.com/ikeikeikeike/phoenix_html_simplified_helpers",
      compilers: [:gettext] ++ Mix.compilers,
