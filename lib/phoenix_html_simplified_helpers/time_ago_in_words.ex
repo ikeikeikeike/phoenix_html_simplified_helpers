@@ -33,10 +33,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
 
   @spec distance_of_time_in_words(Integer.t, Integer.t) :: String.t
   def distance_of_time_in_words(from_time, to_time) when is_integer(from_time) and is_integer(to_time) do
-    if from_time > to_time do
-      from_time = to_time
-      to_time = from_time
-    end
+    from_time = Enum.min([from_time, to_time])
 
     distance_in_minutes = round((to_time - from_time) / 60.0)
     distance_in_seconds = round(to_time - from_time)
