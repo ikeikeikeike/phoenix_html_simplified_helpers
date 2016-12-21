@@ -6,6 +6,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers do
       import Phoenix.HTML.SimplifiedHelpers.Truncate
       import Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords
       import Phoenix.HTML.SimplifiedHelpers.NumberWithDelimiter
+      import Phoenix.HTML.SimplifiedHelpers.URL
     end
   end
 

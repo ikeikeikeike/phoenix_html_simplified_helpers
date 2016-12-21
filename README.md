@@ -125,3 +125,35 @@ distance_of_time_in_words(from, to)
 number_with_delimiter 1234567
 # 1,234,567
 ```
+
+## url_for
+
+Routes setting is [Here](https://github.com/ikeikeikeike/phoenix_html_simplified_helpers/blob/master/test/test_helper.exs).
+
+```elixir
+url_for(conn, "home.index")
+# /
+
+url_for(conn, "entry.release:")
+# /release/
+
+url_for(conn, "entry.release:percent")
+# /release/percent
+
+url_for(conn, "entry.release:", some: "query")
+# /release/?some=query
+
+url_for(conn, "entry.release:", some: "query", unko: "query2")
+# /release/?some=query&unko=query2
+```
+
+## current_page?
+
+```elixir
+conn = conn(:get, "/release/")
+
+current_page?(conn, "entry.release:")
+# true
+
+current_page?(conn, "home.index")
+# false

@@ -2,12 +2,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   use Mix.Project
 
   @description """
-  Some view helpers for phoenix html( truncate, time_ago_in_words, number_with_delimiter )
+  Some view helpers for phoenix html( truncate, time_ago_in_words, number_with_delimiter, url_for, current_page? )
   """
 
   def project do
     [app: :phoenix_html_simplified_helpers,
-     version: "0.7.0",
+     version: "0.8.0",
      elixir: ">= 1.0.0",
      source_url: "https://github.com/ikeikeikeike/phoenix_html_simplified_helpers",
      compilers: [:gettext] ++ Mix.compilers,
@@ -39,6 +39,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
       {:timex_ecto, "~> 1.0 or ~> 1.1 "},
       {:ecto, "~> 1.1 or ~> 2.0"},
       {:gettext, "~> 0.10 or ~> 0.11"},
+      {:phoenix, "~> 1.2", only: :test},
       {:earmark, ">= 0.0.0", only: :dev},
       {:ex_doc, "~> 0.10", only: :dev},
       {:inch_ex, only: :docs},
