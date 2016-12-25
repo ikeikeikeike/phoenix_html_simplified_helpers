@@ -13,8 +13,8 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
      compilers: [:gettext] ++ Mix.compilers,
      docs: [extras: ["README.md"]],
      description: @description,
-     package: package,
-     deps: deps]
+     package: package(),
+     deps: deps()]
   end
 
   # Configuration for the OTP application
