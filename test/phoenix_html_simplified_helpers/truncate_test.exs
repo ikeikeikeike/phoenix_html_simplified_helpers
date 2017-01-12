@@ -11,7 +11,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TruncateTest do
   end
 
   test "truncate with length option" do
-    assert "Once upon a time in a wo..." == truncate("Once upon a time in a world far far away", length: 27)
+    assert "Once upon a ti..." == truncate("Once upon a time in a world far far away", length: 17)
   end
 
   test "truncate with omission option" do
@@ -30,9 +30,21 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TruncateTest do
     assert false == truncate(false)
   end
 
-  # test "truncate with separator option" do
-    # assert "Once upon a time in a..." == truncate("Once upon a time in a world far far away", length: 27, separator: " ")
-  # end
+  test "truncate with separator option" do
+    assert "Once upon a..." == truncate("Once upon a time in a world far far away", length: 17, separator: " ")
+  end
+
+  test "truncate with separator option one" do
+    assert "username@..." == truncate("username@username-username.com", length: 20, separator: "user")
+  end
+
+  test "truncate with separator option two" do
+    assert "username@username-..." == truncate("username@username-username.comusername@username-username.com", separator: "user")
+  end
+
+  test "truncate with separator option three" do
+    assert "..." == truncate("username@username-username.comusername@username-username.com", length: 3, separator: "user")
+  end
 
   # test "truncate with escape option" do
     # truncate "kjkjkjk"

@@ -81,6 +81,8 @@ truncate "Once upon a time in a world far far away", length: 27
 # Once upon a time in a wo...
 truncate "And they found that many people were sleeping better.", length: 25, omission: "... (continued)"
 # And they f... (continued)
+truncate("Once upon a time in a world far far away", length: 17, separator: " ")
+# Once upon a...
 ```
 
 ## time_ago_in_words
@@ -117,6 +119,13 @@ from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
 to   = Timex.Date.shift(from, months: 18)
 distance_of_time_in_words(from, to)
 # más de 1 año
+```
+
+Or uses `Timex.format!("{relative}", :relative)` instead, like this.
+
+```elixir
+Timex.shift(datetime, hours: -3) |> Timex.format!("{relative}", :relative)
+"3 hours ago"
 ```
 
 ## number_with_delimiter
