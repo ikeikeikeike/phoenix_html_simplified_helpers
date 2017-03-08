@@ -63,6 +63,21 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
     assert time_ago_in_words(Ecto.DateTime.utc) == "menos de 5 segundos"
   end
 
+  test "time_ago_in_words normally in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    assert time_ago_in_words(Timex.now) == "5秒以内"
+  end
+
+  test "time_ago_in_words epoch in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    assert time_ago_in_words(:os.system_time(:seconds)) == "5秒以内"
+  end
+
+  test "time_ago_in_words with ecto in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    assert time_ago_in_words(Ecto.DateTime.utc) == "5秒以内"
+  end
+
   test "distance_of_time_in_words advance one month" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
     to   = Timex.shift(from, months: 1)
@@ -126,6 +141,34 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
     to   = Timex.shift(from, months: 18)
     assert distance_of_time_in_words(from, to) == "más de 1 año"
+  end
+
+  test "distance_of_time_in_words advance one month in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.shift(from, months: 1)
+    assert distance_of_time_in_words(from, to) == "大约1个月"
+  end
+
+  test "distance_of_time_in_words advance one month and half a month in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.shift(from, days: 45)
+    assert distance_of_time_in_words(from, to) == "大约2个月"
+  end
+
+  test "distance_of_time_in_words advance one year in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.shift(from, years: 1)
+    assert distance_of_time_in_words(from, to) == "大约1年"
+  end
+
+  test "distance_of_time_in_words advance 2 years in Chinese" do
+    Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
+    from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+    to   = Timex.shift(from, years: 2)
+    assert distance_of_time_in_words(from, to) == "大约2年"
   end
 
 
