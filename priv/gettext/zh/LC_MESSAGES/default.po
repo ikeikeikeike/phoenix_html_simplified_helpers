@@ -1,0 +1,81 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: zh\n"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:59
+msgid "%{count} day"
+msgstr "%{count}日"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:61
+msgid "%{count} days"
+msgstr "%{count}日"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:52
+msgid "%{count} minute"
+msgstr "%{count}分"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:54
+msgid "%{count} minutes"
+msgstr "%{count}分"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:65
+msgid "%{count} months"
+msgstr "%{count}个月"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:55
+msgid "about %{count} hour"
+msgstr "大约%{count}小时"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:57
+msgid "about %{count} hours"
+msgstr "大约%{count}小时"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:63
+msgid "about %{count} months"
+msgstr "大约%{count}个月"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:73
+msgid "about %{count} year"
+msgstr "大约%{count}年"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:74
+msgid "about %{count} years"
+msgstr "大约%{count}年"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:83
+msgid "almost %{count} year"
+msgstr "大约%{count}年"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:84
+msgid "almost %{count} years"
+msgstr "大约%{count}年"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:50
+msgid "half a minute"
+msgstr "30秒左右"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:51
+msgid "less than %{count} minute"
+msgstr "%{count}分钟以内"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:47
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:48
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:49
+msgid "less than %{count} seconds"
+msgstr "%{count}秒以内"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:78
+msgid "over %{count} year"
+msgstr "%{count}年以上"
+
+#: lib/phoenix_html_simplified_helpers/time_ago_in_words.ex:79
+msgid "over %{count} years"
+msgstr "%{count}年以上"

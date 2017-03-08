@@ -20,7 +20,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Truncate do
     end
   end
 
-  defp rindex(text, str, offset \\ nil) do
+  defp rindex(text, str, offset) do
     text =
       if offset do
         String.slice(text, 0, offset)
