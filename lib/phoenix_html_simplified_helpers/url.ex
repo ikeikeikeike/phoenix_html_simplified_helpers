@@ -1,4 +1,9 @@
 defmodule Phoenix.HTML.SimplifiedHelpers.URL do
+  @moduledoc """
+  URL Helpers
+
+  Routes setting is [Here](https://github.com/ikeikeikeike/phoenix_html_simplified_helpers/blob/master/test/test_helper.exs).
+  """
 
   @doc """
   Generate URL
