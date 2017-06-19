@@ -13,18 +13,29 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
 
   def distance_of_time_in_words(from_time) when is_integer(from_time), do: distance_of_time_in_words(from_time, 0)
   def distance_of_time_in_words(%DateTime{} = from_time),              do: distance_of_time_in_words(Timex.to_unix(from_time), 0)
+  def distance_of_time_in_words(%NaiveDateTime{} = from_time),         do: distance_of_time_in_words(Timex.to_unix(from_time), 0)
   def distance_of_time_in_words(%Ecto.DateTime{}  = from_time) do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
     distance_of_time_in_words(Timex.to_unix(from), 0)
   end
 
-  def distance_of_time_in_words(%DateTime{} = from_time, to_time) when is_integer(to_time), do: distance_of_time_in_words(Timex.to_unix(from_time), to_time)
+  def distance_of_time_in_words(%DateTime{} = from_time, to_time) when is_integer(to_time) do
+    distance_of_time_in_words(Timex.to_unix(from_time), to_time)
+  end
+  def distance_of_time_in_words(%NaiveDateTime{} = from_time, to_time) when is_integer(to_time) do
+    distance_of_time_in_words(Timex.to_unix(from_time), to_time)
+  end
   def distance_of_time_in_words(%Ecto.DateTime{}  = from_time, to_time) when is_integer(to_time)  do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
     distance_of_time_in_words(Timex.to_unix(from), to_time)
   end
 
-  def distance_of_time_in_words(%DateTime{} = from_time, %DateTime{} = to_time), do: distance_of_time_in_words(Timex.to_unix(from_time), Timex.to_unix(to_time))
+  def distance_of_time_in_words(%DateTime{} = from_time, %DateTime{} = to_time) do
+    distance_of_time_in_words(Timex.to_unix(from_time), Timex.to_unix(to_time))
+  end
+  def distance_of_time_in_words(%NaiveDateTime{} = from_time, %NaiveDateTime{} = to_time) do
+    distance_of_time_in_words(Timex.to_unix(from_time), Timex.to_unix(to_time))
+  end
   def distance_of_time_in_words(%Ecto.DateTime{}  = from_time, %Ecto.DateTime{}  = to_time)  do
     {:ok, from} = Timex.Ecto.DateTime.cast from_time
     {:ok, to}   = Timex.Ecto.DateTime.cast to_time
