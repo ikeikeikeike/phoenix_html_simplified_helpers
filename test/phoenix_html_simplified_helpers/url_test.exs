@@ -11,7 +11,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.URLTest do
 
   doctest SimplifiedHelpers
 
-  @opts SimplifiedHelpers.Router.init([])
+  # @opts SimplifiedHelpers.Router.init([])
 
   test "url_for home" do
     conn = conn(:get, "/") |> Map.put(:private, %{phoenix_router: SimplifiedHelpers.Router})

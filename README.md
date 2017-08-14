@@ -92,31 +92,37 @@ truncate("Once upon a time in a world far far away", length: 17, separator: " ")
 ```
 
 ```elixir
-time_ago_in_words Timex.Date.now
+time_ago_in_words :os.system_time
 # less than 5 seconds
-time_ago_in_words Timex.Date.now(:secs)
+time_ago_in_words Timex.now
+# less than 5 seconds
+time_ago_in_words DateTime.utc_now
 # less than 5 seconds
 time_ago_in_words Ecto.DateTime.utc
 # less than 5 seconds
+time_ago_in_words NaiveDateTime.utc_now
+# less than 5 seconds
+time_ago_in_words ~N[2017-08-14 04:40:12.101212]
+# ......
 ```
 
 ### distance_of_time_in_words
 
 ```elixir
-from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
-to   = Timex.Date.shift(from, days: 45)
+from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.shift(from, days: 45)
 distance_of_time_in_words(from, to)
 # about 2 months
 
 Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
-from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
-to   = Timex.Date.shift(from, months: 1)
+from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.shift(from, months: 1)
 distance_of_time_in_words(from, to)
 # 約1ヶ月
 
 Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
-from = Timex.Date.from({{2015, 10, 31}, {0, 0, 0}})
-to   = Timex.Date.shift(from, months: 18)
+from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
+to   = Timex.shift(from, months: 18)
 distance_of_time_in_words(from, to)
 # más de 1 año
 ```
