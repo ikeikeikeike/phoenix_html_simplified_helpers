@@ -1,5 +1,4 @@
 defmodule Phoenix.HTML.SimplifiedHelpers do
-
   @doc false
   defmacro __using__(_options) do
     quote do
@@ -9,5 +8,4 @@ defmodule Phoenix.HTML.SimplifiedHelpers do
       import Phoenix.HTML.SimplifiedHelpers.URL
     end
   end
-
 end

@@ -2,26 +2,26 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Router do
   use Phoenix.Router
 
   pipeline :browser do
-    plug :accepts, ~w(html)
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
+    plug(:accepts, ~w(html))
+    plug(:fetch_session)
+    plug(:fetch_flash)
+    plug(:protect_from_forgery)
   end
 
   pipeline :api do
-    plug :accepts, ~w(json)
+    plug(:accepts, ~w(json))
   end
 
   scope "/", Phoenix.HTML.SimplifiedHelpers do
-    pipe_through :browser # Use the default browser stack
+    # Use the default browser stack
+    pipe_through(:browser)
 
-    get "/", HomeController, :index
+    get("/", HomeController, :index)
 
     scope "/release" do
-      get "/:alias", EntryController, :release
-      get "/", EntryController, :release
+      get("/:alias", EntryController, :release)
+      get("/", EntryController, :release)
     end
-
   end
 end
 

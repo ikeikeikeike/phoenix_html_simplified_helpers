@@ -1,4 +1,4 @@
-Code.require_file "../../test_helper.exs", __ENV__.file
+Code.require_file("../../test_helper.exs", __ENV__.file)
 
 defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
   use ExUnit.Case
@@ -7,7 +7,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
   doctest Phoenix.HTML.SimplifiedHelpers
 
   test "time_ago_in_words normally" do
-    assert time_ago_in_words(Timex.now) == "less than 5 seconds"
+    assert time_ago_in_words(Timex.now()) == "less than 5 seconds"
   end
 
   test "time_ago_in_words epoch" do
@@ -15,12 +15,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
   end
 
   test "time_ago_in_words with ecto" do
-    assert time_ago_in_words(Ecto.DateTime.utc) == "less than 5 seconds"
+    assert time_ago_in_words(Ecto.DateTime.utc()) == "less than 5 seconds"
   end
 
   test "time_ago_in_words normally in English" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
-    assert time_ago_in_words(Timex.now) == "less than 5 seconds"
+    assert time_ago_in_words(Timex.now()) == "less than 5 seconds"
   end
 
   test "time_ago_in_words epoch in English" do
@@ -30,12 +30,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
 
   test "time_ago_in_words with ecto in English" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "en")
-    assert time_ago_in_words(Ecto.DateTime.utc) == "less than 5 seconds"
+    assert time_ago_in_words(Ecto.DateTime.utc()) == "less than 5 seconds"
   end
 
   test "time_ago_in_words normally in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
-    assert time_ago_in_words(Timex.now) == "5秒以内"
+    assert time_ago_in_words(Timex.now()) == "5秒以内"
   end
 
   test "time_ago_in_words epoch in Japanese" do
@@ -45,12 +45,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
 
   test "time_ago_in_words with ecto in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
-    assert time_ago_in_words(Ecto.DateTime.utc) == "5秒以内"
+    assert time_ago_in_words(Ecto.DateTime.utc()) == "5秒以内"
   end
 
   test "time_ago_in_words normally in Español" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
-    assert time_ago_in_words(Timex.now) == "menos de 5 segundos"
+    assert time_ago_in_words(Timex.now()) == "menos de 5 segundos"
   end
 
   test "time_ago_in_words epoch in Español" do
@@ -60,12 +60,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
 
   test "time_ago_in_words with ecto in Español" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
-    assert time_ago_in_words(Ecto.DateTime.utc) == "menos de 5 segundos"
+    assert time_ago_in_words(Ecto.DateTime.utc()) == "menos de 5 segundos"
   end
 
   test "time_ago_in_words normally in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
-    assert time_ago_in_words(Timex.now) == "5秒以内"
+    assert time_ago_in_words(Timex.now()) == "5秒以内"
   end
 
   test "time_ago_in_words epoch in Chinese" do
@@ -75,101 +75,99 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWordsTest do
 
   test "time_ago_in_words with ecto in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
-    assert time_ago_in_words(Ecto.DateTime.utc) == "5秒以内"
+    assert time_ago_in_words(Ecto.DateTime.utc()) == "5秒以内"
   end
 
   test "distance_of_time_in_words advance one month" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, months: 1)
+    to = Timex.shift(from, months: 1)
     assert distance_of_time_in_words(from, to) == "about 1 months"
   end
 
   test "distance_of_time_in_words advance one month and half a month" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, days: 45)
+    to = Timex.shift(from, days: 45)
     assert distance_of_time_in_words(from, to) == "about 2 months"
   end
 
   test "distance_of_time_in_words advance one year" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 1)
+    to = Timex.shift(from, years: 1)
     assert distance_of_time_in_words(from, to) == "about 1 year"
   end
 
   test "distance_of_time_in_words advance 2 years" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 2)
+    to = Timex.shift(from, years: 2)
     assert distance_of_time_in_words(from, to) == "about 2 years"
   end
 
   test "distance_of_time_in_words advance 1 year and half a year" do
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, months: 18)
+    to = Timex.shift(from, months: 18)
     assert distance_of_time_in_words(from, to) == "over 1 year"
   end
 
   test "distance_of_time_in_words advance one month in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, months: 1)
+    to = Timex.shift(from, months: 1)
     assert distance_of_time_in_words(from, to) == "約1ヶ月"
   end
 
   test "distance_of_time_in_words advance one month and half a month in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, days: 45)
+    to = Timex.shift(from, days: 45)
     assert distance_of_time_in_words(from, to) == "約2ヶ月"
   end
 
   test "distance_of_time_in_words advance one year in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 1)
+    to = Timex.shift(from, years: 1)
     assert distance_of_time_in_words(from, to) == "約1年"
   end
 
   test "distance_of_time_in_words advance 2 years in Japanese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "ja")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 2)
+    to = Timex.shift(from, years: 2)
     assert distance_of_time_in_words(from, to) == "約2年"
   end
 
   test "distance_of_time_in_words advance 1 year and half a year in Español" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "es")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, months: 18)
+    to = Timex.shift(from, months: 18)
     assert distance_of_time_in_words(from, to) == "más de 1 año"
   end
 
   test "distance_of_time_in_words advance one month in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, months: 1)
+    to = Timex.shift(from, months: 1)
     assert distance_of_time_in_words(from, to) == "大约1个月"
   end
 
   test "distance_of_time_in_words advance one month and half a month in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, days: 45)
+    to = Timex.shift(from, days: 45)
     assert distance_of_time_in_words(from, to) == "大约2个月"
   end
 
   test "distance_of_time_in_words advance one year in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 1)
+    to = Timex.shift(from, years: 1)
     assert distance_of_time_in_words(from, to) == "大约1年"
   end
 
   test "distance_of_time_in_words advance 2 years in Chinese" do
     Gettext.put_locale(Phoenix.HTML.SimplifiedHelpers.Gettext, "zh")
     from = Timex.to_datetime({{2015, 10, 31}, {0, 0, 0}})
-    to   = Timex.shift(from, years: 2)
+    to = Timex.shift(from, years: 2)
     assert distance_of_time_in_words(from, to) == "大约2年"
   end
-
-
 end

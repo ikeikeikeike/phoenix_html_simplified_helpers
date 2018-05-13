@@ -1,4 +1,4 @@
-Code.require_file "../../test_helper.exs", __ENV__.file
+Code.require_file("../../test_helper.exs", __ENV__.file)
 
 defmodule Phoenix.HTML.SimplifiedHelpers.NumberWithDelimiterTest do
   use ExUnit.Case
@@ -7,7 +7,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.NumberWithDelimiterTest do
   doctest Phoenix.HTML.SimplifiedHelpers
 
   test "int into number_with_delimiter" do
-    assert number_with_delimiter(1234567)   == "1,234,567"
+    assert number_with_delimiter(1_234_567) == "1,234,567"
   end
 
   test "string into number_with_delimiter" do
