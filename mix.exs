@@ -8,7 +8,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   def project do
     [
       app: :phoenix_html_simplified_helpers,
-      version: "2.0.1",
+      version: "2.1.0",
       elixir: ">= 1.3.0",
       source_url: "https://github.com/ikeikeikeike/phoenix_html_simplified_helpers",
       compilers: [:gettext] ++ Mix.compilers(),
@@ -37,10 +37,10 @@ defmodule Phoenix.HTML.SimplifiedHelpers.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:timex, "~> 3.3 or ~> 3.2"},
-      {:ecto, "~> 2.2 or ~> 2.1"},
+      {:timex, "~> 3.4 or ~> 3.3 or ~> 3.2"},
+      {:ecto, "~> 3.0 or ~> 2.2 or ~> 2.1"},
       {:gettext, ">= 0.11.0"},
-      {:phoenix, "~> 1.3", only: :test},
+      {:phoenix, "~> 1.3 or ~> 1.4", only: :test},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:inch_ex, ">= 0.0.0", only: :docs},
       {:earmark, ">= 0.0.0", only: :dev}
