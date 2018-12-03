@@ -19,9 +19,11 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
   def distance_of_time_in_words(%NaiveDateTime{} = from_time),
     do: distance_of_time_in_words(Timex.to_unix(from_time), 0)
 
-  def distance_of_time_in_words(%Ecto.DateTime{} = from_time) do
-    from = Ecto.DateTime.to_erl(from_time)
-    distance_of_time_in_words(Timex.to_unix(from), 0)
+  if Code.ensure_loaded?(Ecto.DateTime) do
+    def distance_of_time_in_words(%Ecto.DateTime{} = from_time) do
+      from = Ecto.DateTime.to_erl(from_time)
+      distance_of_time_in_words(Timex.to_unix(from), 0)
+    end
   end
 
   def distance_of_time_in_words(%DateTime{} = from_time, to_time) when is_integer(to_time) do
@@ -32,9 +34,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
     distance_of_time_in_words(Timex.to_unix(from_time), to_time)
   end
 
-  def distance_of_time_in_words(%Ecto.DateTime{} = from_time, to_time) when is_integer(to_time) do
-    from = Ecto.DateTime.to_erl(from_time)
-    distance_of_time_in_words(Timex.to_unix(from), to_time)
+  if Code.ensure_loaded?(Ecto.DateTime) do
+    def distance_of_time_in_words(%Ecto.DateTime{} = from_time, to_time)
+        when is_integer(to_time) do
+      from = Ecto.DateTime.to_erl(from_time)
+      distance_of_time_in_words(Timex.to_unix(from), to_time)
+    end
   end
 
   def distance_of_time_in_words(%DateTime{} = from_time, %DateTime{} = to_time) do
@@ -45,10 +50,12 @@ defmodule Phoenix.HTML.SimplifiedHelpers.TimeAgoInWords do
     distance_of_time_in_words(Timex.to_unix(from_time), Timex.to_unix(to_time))
   end
 
-  def distance_of_time_in_words(%Ecto.DateTime{} = from_time, %Ecto.DateTime{} = to_time) do
-    from = Ecto.DateTime.to_erl(from_time)
-    to = Ecto.DateTime.to_erl(to_time)
-    distance_of_time_in_words(Timex.to_unix(from), Timex.to_unix(to))
+  if Code.ensure_loaded?(Ecto.DateTime) do
+    def distance_of_time_in_words(%Ecto.DateTime{} = from_time, %Ecto.DateTime{} = to_time) do
+      from = Ecto.DateTime.to_erl(from_time)
+      to = Ecto.DateTime.to_erl(to_time)
+      distance_of_time_in_words(Timex.to_unix(from), Timex.to_unix(to))
+    end
   end
 
   @spec distance_of_time_in_words(Integer.t(), Integer.t()) :: String.t()
