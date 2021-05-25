@@ -5,7 +5,7 @@ defmodule Phoenix.HTML.SimplifiedHelpers.NumberWithDelimiter do
     i
     |> Integer.to_charlist()
     |> Enum.reverse()
-    |> Enum.chunk(3, 3, [])
+    |> Enum.chunk_every(3, 3, [])
     |> Enum.join(",")
     |> String.reverse()
   end
